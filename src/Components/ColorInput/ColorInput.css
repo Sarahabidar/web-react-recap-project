@@ -1,0 +1,4 @@
+.color-input-label {
+  display: flex;
+  flex-direction: column;
+}
