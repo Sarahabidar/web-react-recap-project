@@ -6,7 +6,9 @@ import { nanoid } from "nanoid";
 export default function ColorForm({ initialColor, onNewColors }) {
   const [role, setRole] = useState(initialColor ? initialColor.role : "");
   const [hex, setHex] = useState(initialColor ? initialColor.hex : "#123456");
-  const [contrastText, setContrastText] = useState("#ffffff");
+  const [contrastText, setContrastText] = useState(
+    initialColor ? initialColor.contrastText : "#ffffff"
+  );
 
   function handleRoleChange(event) {
     setRole(event.target.value);

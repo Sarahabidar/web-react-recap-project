@@ -11,8 +11,8 @@ function App() {
     setColors([newColor, ...colors]);
   }
   const deleteColor = (colorId) => {
-    const updateColor = colors.filter((color) => color.id !== colorId);
-    setColors(updateColor);
+    const updateColors = colors.filter((color) => color.id !== colorId);
+    setColors(updateColors);
   };
   const editColor = (editedColor) => {
     const editedColors = colors.map((color) =>
