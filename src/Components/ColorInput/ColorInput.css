@@ -1,0 +1,4 @@
+.color-form-input {
+  display: flex;
+  flex-direction: column;
+}
