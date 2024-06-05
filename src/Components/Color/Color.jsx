@@ -20,7 +20,7 @@ export default function Color({ color, onDelete }) {
       className="color-card"
       style={{
         background: color.hex,
-        color: color.contrastsText,
+        color: color.contrastText,
       }}
     >
       <h3 className="color-card-headline">{color.hex}</h3>
