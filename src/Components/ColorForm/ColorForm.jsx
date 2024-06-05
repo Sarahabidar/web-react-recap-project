@@ -3,10 +3,12 @@ import "./ColorForm.css";
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
 
-export default function ColorForm({ colors, onNewColors }) {
-  const [role, setRole] = useState("");
-  const [hex, setHex] = useState("#123456");
-  const [contrastText, setContrastText] = useState("#ffffff");
+export default function ColorForm({ initialColor, onNewColors }) {
+  const [role, setRole] = useState(initialColor ? initialColor.role : "");
+  const [hex, setHex] = useState(initialColor ? initialColor.hex : "#123456");
+  const [contrastText, setContrastText] = useState(
+    initialColor ? initialColor.contrastText : "#ffffff"
+  );
 
   function handleRoleChange(event) {
     setRole(event.target.value);
@@ -15,7 +17,7 @@ export default function ColorForm({ colors, onNewColors }) {
     event.preventDefault();
     if (role && hex && contrastText) {
       const newColor = {
-        id: nanoid(),
+        id: initialColor ? initialColor.id : nanoid(),
         role,
         hex,
         contrastText,
@@ -47,7 +49,9 @@ export default function ColorForm({ colors, onNewColors }) {
         onChange={setContrastText}
       />
       <div>
-        <button type="submit">ADD COLOR</button>
+        <button type="submit">
+          {initialColor ? "Update Color" : "Add Color"}
+        </button>
       </div>
     </form>
   );

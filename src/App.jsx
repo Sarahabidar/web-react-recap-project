@@ -11,17 +11,30 @@ function App() {
     setColors([newColor, ...colors]);
   }
   const deleteColor = (colorId) => {
-    const updateColor = colors.filter((color) => color.id !== colorId);
-    setColors(updateColor);
+    const updateColors = colors.filter((color) => color.id !== colorId);
+    setColors(updateColors);
+  };
+  const editColor = (editedColor) => {
+    const editedColors = colors.map((color) =>
+      color.id === editedColor.id ? editedColor : color
+    );
+    setColors(editedColors);
   };
 
   return (
     <>
       <h1>Theme Creator</h1>
-      <ColorForm colors={initialColors} onNewColors={addNewColor} />
+      <ColorForm onNewColors={addNewColor} />
 
       {colors.map((color) => {
-        return <Color key={color.id} color={color} onDelete={deleteColor} />;
+        return (
+          <Color
+            key={color.id}
+            color={color}
+            onDelete={deleteColor}
+            onEdit={editColor}
+          />
+        );
       })}
     </>
   );
