@@ -7,7 +7,7 @@ export default function Color({ color, onDelete, onEdit }) {
   const [editAllow, setEditAllow] = useState(false);
 
   const handleDelete = () => {
-    setshowConfirmation(true);
+    setshowConfirmation(!showConfirmation);
   };
 
   const cancelDelete = () => {
@@ -30,7 +30,7 @@ export default function Color({ color, onDelete, onEdit }) {
       className="color-card"
       style={{
         background: color.hex,
-        color: color.contrastsText,
+        color: color.contrastText,
       }}
     >
       <h3 className="color-card-headline">{color.hex}</h3>

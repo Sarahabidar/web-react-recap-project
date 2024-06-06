@@ -11,12 +11,8 @@ export default function ColorInput({ label, value, onChange }) {
   return (
     <div>
       <label className="color-input-label">{label}</label>
-      <input type="text" value={value} onChangeText={handleTextChange}></input>
-      <input
-        type="color"
-        value={value}
-        onChangeColor={handleColorChange}
-      ></input>
+      <input type="text" value={value} onChange={handleTextChange}></input>
+      <input type="color" value={value} onChange={handleColorChange}></input>
     </div>
   );
 }
