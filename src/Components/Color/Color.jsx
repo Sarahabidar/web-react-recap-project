@@ -7,7 +7,7 @@ export default function Color({ color, onDelete, onEdit }) {
   const [editAllow, setEditAllow] = useState(false);
 
   const handleDelete = () => {
-    setshowConfirmation(true);
+    setshowConfirmation(!showConfirmation);
   };
 
   const cancelDelete = () => {
