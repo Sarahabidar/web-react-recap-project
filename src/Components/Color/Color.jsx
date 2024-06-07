@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Color.css";
 import ColorForm from "../ColorForm/ColorForm";
 import CopyToClipboard from "../CopyToClipboard/CopyToClipboard";
+import ContrastChecker from "../ContrastChecker/ContrastChecker";
 
 export default function Color({ color, onDelete, onEdit }) {
   const [showConfirmation, setshowConfirmation] = useState(false);
@@ -38,6 +39,7 @@ export default function Color({ color, onDelete, onEdit }) {
         <h3 className="color-card-headline">{color.hex}</h3>
         <CopyToClipboard hexCode={color.hex} />
       </div>
+      <ContrastChecker color={color} />
       <h4>{color.role}</h4>
       <p>contrast: {color.contrastText}</p>
       <button onClick={handleDelete}>DELETE</button>
